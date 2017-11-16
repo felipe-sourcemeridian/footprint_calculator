@@ -16,7 +16,7 @@ x miles x 0.40935 kg CO2e x 1 month x 1 week = kg CO2e
 month mile 4 weeks 7 days day
  Frente a ello un árbol puede consumir desde 5 hasta 90 kilos de CO2, según sea su especie, edad o localización.
  
- 
+ .bash_profile:
 export NODE_HOME=/usr/local/node
 export PATH=$NODE_HOME/bin:$PATH
 
@@ -26,9 +26,12 @@ port = 3306
 bind-address = 0.0.0.0
 3) mysql
 
-GRANT ALL PRIVILEGES ON *.* TO 'user_name'@'%';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'developer' WITH GRANT OPTION;
+ FLUSH PRIVILEGES;
+
+GRANT ALL ON huella_carbono.* TO bar@'202.54.10.20' IDENTIFIED BY 'PASSWORD';
 FLUSH PRIVILEGES;
-4) mysqld
+
 
 sudo service mysqld restart
 
@@ -37,12 +40,12 @@ sudo service mysqld restart
  http://35.192.174.91:3000/
  netstat -napt | grep
  
-
-
+netcat -vv -l 0.0.0.0 3306
+telnet localhost 3306
 
 
  ******************************QUERIES***************************************
-
+mysql -u root -p -e "use huella_carbono; select * from viaje;
 
 use huella_carbono;
 
