@@ -272,7 +272,7 @@ var Interface = (function () {
                         url: '/api/grafica/ano/{0}'.format(userId),
                         dataType: 'json'
                     }).done(function (dataAno) {
-                        var data = [['CO2', 'Electrodo...', 'Transporte']];
+                        var data = [['kg co2', 'Electrodomesticos', 'Transporte']];
                         var temp = {};
                         var fecha;
                         var totalConsumo = 0;
@@ -338,7 +338,7 @@ var Interface = (function () {
         var data = google.visualization.arrayToDataTable(_data);
 
         var options = {
-            title: 'Total Electrodomesticos y Transporte',
+            title: 'Total Kgs C02  Electrodomesticos y Transporte',
             pieHole: 0.4,
         };
 
@@ -351,8 +351,7 @@ var Interface = (function () {
 
         var options = {
             chart: {
-                title: 'Generacion de CO2',
-                subtitle: 'Generacion de gases de efecto invernadero',
+                title: 'Generacion de KGS C02'
             },
             bars: 'vertical' // Required for Material Bar Charts.
         };
@@ -372,7 +371,7 @@ var Interface = (function () {
         var data = google.visualization.arrayToDataTable(temp);
 
         var options = {
-            title: 'Relacion entre emision y poblacion',
+            title: 'Relacion entre emision promedio y poblacion',
             hAxis: {title: 'Area(m2)'},
             vAxis: {title: 'Poblacion'},
             bubble: {textStyle: {fontSize: 11}}

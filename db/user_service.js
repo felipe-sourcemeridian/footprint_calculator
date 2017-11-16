@@ -31,7 +31,7 @@ let UserService = {
         this.response(query.format(userId), function (total) {
             if (total) {
                 done({
-                    total: (total.total_kg / 90) >> 0
+                    total: (total.total_kg / 30) >> 0
                 });
             } else {
                 done({
