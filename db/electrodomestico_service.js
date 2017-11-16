@@ -18,11 +18,10 @@ let ElectrodomesticoService = {
     },
     insertAsignacion: function (consumos) {
         const query = 'select * from recomendacion where tipo="consumo" and consumo_kg_co2<=(SELECT sum(kg_co2) FROM consumo where cod_usuario={0} and fecha = "{1}")';
-       
         const userId = consumos[0].cod_usuario;
         const date = consumos[0].fecha;
         let that = this;
-        console.log(query.format(userId, date));
+
         this.response(query.format(userId, date), function (recomendaciones) {
             const query = 'INSERT INTO asignacion (num_recomendacion,cod_usuario,estado,fecha) VALUES ({0},"{1}","{2}","{3}")';
 
